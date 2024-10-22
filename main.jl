@@ -1,12 +1,10 @@
-include("WebServer.jl")
+include("webserver.jl")
+import .WebServer
 
-struct Main
-    # Main function to run the server
-    function main()
-        server = WebServer("templates", "static")
-        println("Starting server on http://localhost:8080...")
-        start_server(server, 8080)
-    end
-
-    main()
+function main()
+    server = WebServer.webserver_strings("templates", "static")
+    println("Starting server on http://localhost:8080...")
+    WebServer.start_server(server,"127.0.0.1", 9006)
 end
+
+main()
