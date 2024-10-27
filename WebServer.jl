@@ -35,11 +35,11 @@ module WebServer
         elseif request_path == "/style.css"
             css_content = read(joinpath(server.static_dir, "style.css"), String)
             return send_response(200, "text/css", css_content)
-        elseif startswith(request_path, "/static/images/")  # Handle images
+        elseif startswith(request_path, "/images/")  # Handle images
             image_path = joinpath(server.static_dir, request_path[2:end])  # Remove leading "/"
             if isfile(image_path)
                 image_content = read(image_path)
-                headers = ["Content-Type" => "image/jpeg"]  # Adjust content type based on image type
+                headers = ["Content-Type" => "image/jpg"]  # Adjust content type based on image type
                 return HTTP.Response(200, headers, image_content)
             else
                 return send_response(404, "text/plain", "404 - Image Not Found")

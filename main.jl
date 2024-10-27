@@ -3,7 +3,7 @@ import .WebServer
 
 function main()
     server = WebServer.webserver_strings("templates", "static")
-    println("Starting server on http://localhost:8080...")
+    println("Starting server on http://localhost:9006...")
     WebServer.start_server(server,"127.0.0.1", 9006)
 end
 
