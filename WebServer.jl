@@ -51,7 +51,7 @@ module WebServer
 
     function start_server(server::webserver_strings, ip, port::Int)
         handler = (req) -> handle_request(server, req)
-        HTTP.serve(handler, ip"0.0.0.0", port)
+        HTTP.serve(handler, ip = ip"0.0.0.0", port)
     end
 
 end
